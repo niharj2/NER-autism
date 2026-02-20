@@ -6,7 +6,6 @@ from data_pre_processing import tagging
 
 model = AutoModelForTokenClassification.from_pretrained(pretrained_model_name_or_path="bert-base-cased", num_labels = len(tagging.tags), id2label = tagging.flipped_tags, label2id = tagging.tags)
 
-
 args = TrainingArguments(
     output_dir="bert-finetuned-ner",
     eval_strategy="epoch",      # or evaluation_strategy="epoch" depending on your version
