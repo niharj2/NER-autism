@@ -17,6 +17,13 @@ tags = {
     "B-SOSY": 23, "I-SOSY": 24
 }
 
+flipped_tags = {}
+for key, value in tags.items():
+  flipped_tags[value] = key
+
+flipped_tags
+
+
 
 df = pd.read_json("Traditional/synthetic_data/asd_clinical_ner_12types_10000.jsonl", lines = True)
 df["words"] = np.nan
@@ -43,5 +50,5 @@ df["words"] = all_words
 df["ner_tags"] = all_ner_tags
 
 
-df.to_json('Traditional/synthetic_data/asd_clinical_ner_12types_10000.jsonl', orient="records", lines=True)
+df.to_json('Traditional/synthetic_data/asd_clinical_ner_12types_10000_processed.jsonl', orient="records", lines=True)
 
